@@ -1,20 +1,52 @@
 body{
   text-align: center;
-  background: url(images/background.jpg) center center fixed;
+  background: url(images/paintbg.jpg) center center fixed;
   background-size: cover;
 }
-
+/*title*/
 #header{
-  background: rgba(255, 240, 132, 0.5);
-  height: 50px;
-  width: 500px;
-  margin: 10px auto;
-  font-size: 2em;
-  color: blue;
-  line-height: 50px;
+    background: linear-gradient(white, rgba(67,169,228,0.9));
+    background: -webkit-linear-gradient(white, rgba(67,169,228,0.9));
+    background: -moz-linear-gradient(white, rgba(67,169,228,0.9));
+    background: -o-linear-gradient(white, rgba(67,169,228,0.9));
+    background: -ms-linear-gradient(white, rgba(67,169,228,0.9));
+    height: 80px;
+    width: 500px;
+    margin: 10px auto;
+    font-size: 3em;
+    color: #fff;
+    line-height: 80px;
 }
 
+/*inputs container*/
 .inputContainer{
-  width: 200px;
-  margin: 0 auto;
+    width: 200px;
+    margin: 0 auto;
+}
+
+/*color input, line thickness, slider*/
+.input{
+    height: 30px;
+    font-size: 1.3em;
+}
+#slider{
+    margin: 10px auto;
+}
+#circle{
+    height: 3px;
+    width: 3px;
+    border-radius: 50%;
+    background: black;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+}
+#thicknessInput{
+    position: relative;
 }
