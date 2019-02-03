@@ -1,0 +1,24 @@
+body{
+  text-align: center;
+  background: url(images/background.jpg) center center fixed;
+  background-size: cover;
+}
+
+#header{
+  background: rgba(255, 240, 132, 0.5);
+  height: 50px;
+  width: 500px;
+  margin: 10px auto;
+  font-size: 2em;
+  color: blue;
+  line-height: 50px;
+}
+
+.inputContainer{
+  width: 200px;
+  margin: 0 auto;
+}
+
+.input{
+  height: 30px;
+}
