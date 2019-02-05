@@ -31,6 +31,7 @@ body{
 }
 #slider{
     margin: 10px auto;
+    background: url("")
 }
 #circle{
     height: 3px;
