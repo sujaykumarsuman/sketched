@@ -54,6 +54,12 @@ $(function(){
     paint = false;
   });
 
+  $("#reset").click(function(){
+    ctx.clearRect(0, 0, 500, 400);
+    paint_erase = "paint";
+    $("#erase").removeClass("eraseMode");
+  });
+
   $("#erase").click(function(){
     if(paint_erase == "paint"){
       paint_erase = "erase";
