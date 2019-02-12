@@ -13,7 +13,7 @@
     <div class="inputContainer">
         <!--color-->
         <div class="input" id="colorInput">
-            <input type="color" list id="paintColor">
+            <input type="color" id="paintColor">
         </div>
         <!--size-->
         <div class="input" id="thicknessInput">
@@ -24,6 +24,28 @@
         </div>
     </div>
     
+    <!-- Canvas Container -->
+    <div id="paintbox">
+        <canvas id="paint">
+            
+        </canvas>
+    </div>
+    <!-- Buttons -->
+    <div class="menu">
+        <!-- Erase -->
+        <div class="menubtn">
+            <span id="erase" class="button">Erase</span>
+        </div>
+        <!-- Save -->
+        <div class="menubtn">
+            <span id="save" class="button">Save</span>
+        </div>
+        <!-- Reset -->
+        <div class="menubtn">
+            <span id="reset" class="button">Reset</span>
+        </div>
+    </div>
+
     <!-- JavaScript Files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>

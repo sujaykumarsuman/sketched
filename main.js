@@ -1,6 +1,5 @@
 $(function(){
 
-
   $("#slider").slider({
     min: 3,
     max: 30,
@@ -10,4 +9,5 @@ $(function(){
     }
   });
 
+  
 });
