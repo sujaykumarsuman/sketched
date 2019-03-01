@@ -1,26 +1,25 @@
-$(function(){
-
-  $("#slider").slider({
-    min: 3,
-    max: 30,
-    slide: function (event, ui) {
-      $("#circle").height(ui.value);
-      $("#circle").width(ui.value);
-    }
-  });
-
+$(function() {
   var paint = false;
   var paint_erase = "paint";
   var canvas = document.getElementById("paint");
   var ctx = canvas.getContext("2d");
   var container = $("#paintbox");
-  var mouse = {x: 0, y: 0};
+  var mouse = { x: 0, y: 0 };
+
+  // Load saved canvas
+  if (localStorage.getItem("imgCanvas") != null) {
+    var img = new Image();
+    img.onload = function() {
+      ctx.drawImage(img, 0, 0);
+    };
+    img.src = localStorage.getItem("imgCanvas");
+  }
 
   ctx.lineWidth = 3;
   ctx.lineJoin = "round";
   ctx.lineCap = "round";
 
-  container.mousedown(function(e){
+  container.mousedown(function(e) {
     paint = true;
     ctx.beginPath();
 
@@ -30,15 +29,13 @@ $(function(){
   });
 
   container.mousemove(function(e) {
-    
     mouse.x = e.pageX - this.offsetLeft;
     mouse.y = e.pageY - this.offsetTop;
 
-    if(paint == true){
-      if(paint_erase == "paint"){
-        ctx.strokeStyle = "red";
-      }
-      else{
+    if (paint == true) {
+      if (paint_erase == "paint") {
+        ctx.strokeStyle = $("#paintColor").val();
+      } else {
         ctx.strokeStyle = "white";
       }
 
@@ -47,28 +44,50 @@ $(function(){
     }
   });
 
-  container.mouseup(function(){
+  container.mouseup(function() {
     paint = false;
   });
-  container.mouseleave(function(){
+  container.mouseleave(function() {
     paint = false;
   });
 
-  $("#reset").click(function(){
+  $("#reset").click(function() {
     ctx.clearRect(0, 0, 500, 400);
     paint_erase = "paint";
     $("#erase").removeClass("eraseMode");
   });
 
-  $("#erase").click(function(){
-    if(paint_erase == "paint"){
-      paint_erase = "erase";
+  // Save Sketch
+  $("#save").click(function() {
+    if (typeof localStorage) {
+      localStorage.setItem("imgCanvas", canvas.toDataURL());
+    } else {
+      window.alert("Your borwser does not support local storage!");
     }
-    else{
+  });
+
+  $("#erase").click(function() {
+    if (paint_erase == "paint") {
+      paint_erase = "erase";
+    } else {
       paint_erase = "paint";
     }
 
     $(this).toggleClass("eraseMode");
   });
 
+  $("#paintColor").change(function() {
+    $("#circle").css("background-color", $(this).val());
+    $(this).css("background-color", $(this).val());
+  });
+
+  $("#slider").slider({
+    min: 3,
+    max: 30,
+    slide: function(event, ui) {
+      $("#circle").height(ui.value);
+      $("#circle").width(ui.value);
+      ctx.lineWidth = ui.value;
+    }
+  });
 });
